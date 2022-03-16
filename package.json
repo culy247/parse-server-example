@@ -1,7 +1,7 @@
 {
-  "name": "parse-server-example",
+  "name": "parse-server",
   "version": "1.4.0",
-  "description": "An example Parse API server using the parse-server module",
+  "description": "An Parse API server using the parse-server module",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -9,10 +9,15 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "4.17.1",
-    "kerberos": "1.1.4",
-    "parse": "2.19.0",
-    "parse-server": "4.5.0"
+    "@parse/s3-files-adapter": "^1.6.2",
+    "aws-sdk": "^2.1095.0",
+    "axios": "^0.26.1",
+    "express": "^4.17.3",
+    "kerberos": "^2.0.0",
+    "parse": "^3.4.1",
+    "parse-dashboard": "^4.0.1",
+    "parse-server": "^5.0.0",
+    "sharp": "^0.30.3"
   },
   "scripts": {
     "start": "node index.js",
@@ -21,22 +26,23 @@
     "test": "mongodb-runner start && jasmine",
     "coverage": "nyc jasmine",
     "prettier": "prettier --write '{cloud,spec}/{**/*,*}.js' 'index.js'",
-    "watch": "babel-watch index.js"
+    "watch": "babel-watch index.js",
+    "heroku-postbuild": "npm audit fix --force"
   },
   "engines": {
-    "node": ">=4.3"
+    "node": "14.x"
   },
   "devDependencies": {
-    "babel-eslint": "10.1.0",
-    "babel-watch": "7.4.0",
-    "eslint": "7.19.0",
-    "eslint-config-standard": "16.0.2",
-    "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-promise": "4.2.1",
-    "jasmine": "3.6.4",
-    "mongodb-runner": "4.8.1",
-    "nyc": "15.1.0",
-    "prettier": "2.2.1"
+    "babel-eslint": "^10.1.0",
+    "babel-watch": "^7.7.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.0.0",
+    "jasmine": "^4.0.2",
+    "mongodb-runner": "^2.2.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.5.1"
   }
 }
